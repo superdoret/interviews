@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "full_name": "Matias Toro",
+        "email" : "matias.e.toro@gmail.com",
+        "gender": "Male",
+        "age": 43,
+        "start_date": "2023-01-01"
+    },
+    {
+        "id": 2,
+        "full_name": "Emma Toro",
+        "email" : "emma.toro@gmail.com",
+        "gender": "Female",
+        "age": 6,
+        "start_date": "2023-01-20"
+    },
+    {
+        "id": 3,
+        "full_name": "Virginia Fiele",
+        "email" : "fiele.virginia@gmail.com",
+        "gender": "Female",
+        "age": 47,
+        "start_date": "2022-01-20"
+    }
+]
