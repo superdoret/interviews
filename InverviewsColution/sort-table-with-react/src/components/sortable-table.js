@@ -18,11 +18,11 @@ export const SortableTable = ({ sortConfig }) => {
             <caption align="top">List of the users</caption>
             <thead>
                 <tr>            
-                <th>Full Name</th>
-                <th>Email</th>
-                <th>Gender</th>
-                <th>Age</th>
-                <th>Start Date</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Age</th>
+                    <th>Start Date</th>
                 </tr>
             </thead>
             <tbody>

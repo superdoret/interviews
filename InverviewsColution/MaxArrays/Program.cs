@@ -1,38 +1,42 @@
-﻿var numbers = new int[] { 20, -50, -8, 25, 100, 35 };
-
-var sumNumbers1 = GetSumValuesWithoutMaxUsingEnumerable(numbers);
-Console.WriteLine($"The sum of all positives values without max value is: {sumNumbers1} using Enumerable");
-
-var sumNumbers2 = GetSumValuesWithoutMaxUsingIteration(numbers);
-Console.WriteLine($"The sum of all positives values without max value is: {sumNumbers2} using Iterations");
+﻿// Ejemplo de un array de números enteros
+int[] numeros = { 20, 4, 1, 15 };
 
 
-int GetSumValuesWithoutMaxUsingEnumerable(int[] numbers) 
+bool resultado = ExisteCombinacionQueSuma(numeros);
+Console.WriteLine("¿Hay al menos una combinación que sume el mismo valor que el máximo? " + resultado);
+
+static bool ExisteCombinacionQueSuma(int[] numeros)
 {
-    //First Approach using Enumerable.Max and Enumerable Sum
-    var maxNumber = numbers.Max();
-    Console.WriteLine($"Ther max item value is: {maxNumber}");
-
-    var sumNumbers = numbers.Where(x => x > 0 && x != maxNumber).Sum();    
-    return sumNumbers;
-}
-
-int GetSumValuesWithoutMaxUsingIteration(int[] numbers)
-{
-    var maxNumber = 0;
-    var sumNumbers = 0;
-    foreach (int number in numbers) 
+    // Encontrar la suma total de todos los elementos del array
+    int sumaTotal = 0;
+    for (int i = 0; i < numeros.Length; i++)
     {
-        if (number > 0) 
+        sumaTotal += numeros[i];
+    }
+
+    // Encontrar todas las combinaciones que sumen el mismo valor que la suma total menos el valor máximo
+    int maximo = numeros.Max();    
+    
+    for (int i = 0; i < numeros.Length; i++)
+    {
+        if (numeros[i] == maximo)
         {
-            if(number > maxNumber) 
+            continue;
+        }
+        int suma = numeros[i];
+        for (int j = i + 1; j < numeros.Length; j++)
+        {
+            if (numeros[j] == maximo)
             {
-                maxNumber = number;
+                continue;
             }
-            sumNumbers += number;
+            suma += numeros[j];
+            if (suma == maximo)
+            {
+                return true;
+            }
         }
     }
-    sumNumbers -= maxNumber;
-    Console.WriteLine($"Ther max item value is: {maxNumber}");
-    return sumNumbers;
+
+    return false;
 }
